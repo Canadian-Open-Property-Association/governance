@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useVctStore } from './store/vctStore';
+import { getLocaleName } from './types/vct';
 import MetadataForm from './components/FormPanel/MetadataForm';
 import DisplayForm from './components/FormPanel/DisplayForm';
 import ClaimsForm from './components/FormPanel/ClaimsForm';
@@ -11,9 +12,13 @@ type FormSection = 'metadata' | 'display' | 'claims';
 
 function App() {
   const [activeSection, setActiveSection] = useState<FormSection>('metadata');
-  const [previewLang, setPreviewLang] = useState<string>('en-CA');
+  const [previewLocale, setPreviewLocale] = useState<string>('en-CA');
   const [previewMode, setPreviewMode] = useState<'simple' | 'svg'>('simple');
   const currentProjectName = useVctStore((state) => state.currentProjectName);
+  const currentVct = useVctStore((state) => state.currentVct);
+
+  // Get available locales from the current VCT display configuration
+  const availableLocales = currentVct.display.map((d) => d.locale);
 
   return (
     <div className="flex flex-col h-screen bg-gray-100">
@@ -97,12 +102,15 @@ function App() {
             <div className="flex items-center gap-2">
               <label className="text-sm text-gray-600">Language:</label>
               <select
-                value={previewLang}
-                onChange={(e) => setPreviewLang(e.target.value)}
+                value={previewLocale}
+                onChange={(e) => setPreviewLocale(e.target.value)}
                 className="text-sm border border-gray-300 rounded px-2 py-1"
               >
-                <option value="en-CA">English (CA)</option>
-                <option value="fr-CA">Français (CA)</option>
+                {availableLocales.map((locale) => (
+                  <option key={locale} value={locale}>
+                    {getLocaleName(locale)}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="flex items-center gap-2">
@@ -117,7 +125,7 @@ function App() {
               </select>
             </div>
           </div>
-          <CredentialPreview lang={previewLang} mode={previewMode} />
+          <CredentialPreview locale={previewLocale} mode={previewMode} />
         </div>
       </main>
     </div>

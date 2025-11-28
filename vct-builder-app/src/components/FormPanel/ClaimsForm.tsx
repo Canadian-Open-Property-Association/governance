@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useVctStore } from '../../store/vctStore';
-import { VCTClaim, VCTClaimDisplay } from '../../types/vct';
+import { VCTClaim, VCTClaimDisplay, getLocaleName } from '../../types/vct';
 
 export default function ClaimsForm() {
   const currentVct = useVctStore((state) => state.currentVct);
@@ -11,6 +11,9 @@ export default function ClaimsForm() {
   const updateSampleDataField = useVctStore((state) => state.updateSampleDataField);
 
   const [expandedClaim, setExpandedClaim] = useState<number | null>(null);
+
+  // Get locales from display configuration
+  const locales = currentVct.display.map((d) => d.locale);
 
   const updateClaimPath = (claimIndex: number, pathIndex: number, value: string) => {
     const claim = currentVct.claims[claimIndex];
@@ -32,13 +35,13 @@ export default function ClaimsForm() {
 
   const updateClaimDisplay = (
     claimIndex: number,
-    lang: string,
+    locale: string,
     field: keyof VCTClaimDisplay,
     value: string
   ) => {
     const claim = currentVct.claims[claimIndex];
     const newDisplay = claim.display.map((d) =>
-      d.lang === lang ? { ...d, [field]: value } : d
+      d.locale === locale ? { ...d, [field]: value } : d
     );
     updateClaim(claimIndex, { display: newDisplay });
   };
@@ -87,7 +90,7 @@ export default function ClaimsForm() {
                     {getClaimPathString(claim) || '(unnamed)'}
                   </span>
                   <span className="text-xs text-gray-500">
-                    {claim.display.find((d) => d.lang === 'en-CA')?.label || ''}
+                    {claim.display[0]?.label || ''}
                   </span>
                 </div>
                 <button
@@ -118,7 +121,7 @@ export default function ClaimsForm() {
                           )}
                           <input
                             type="text"
-                            value={segment || ''}
+                            value={segment?.toString() || ''}
                             onChange={(e) =>
                               updateClaimPath(claimIndex, pathIndex, e.target.value)
                             }
@@ -131,7 +134,7 @@ export default function ClaimsForm() {
                               onClick={() => removePathSegment(claimIndex, pathIndex)}
                               className="text-gray-400 hover:text-red-500"
                             >
-                              ×
+                              x
                             </button>
                           )}
                         </div>
@@ -149,96 +152,108 @@ export default function ClaimsForm() {
                     </p>
                   </div>
 
-                  {/* Display Labels */}
-                  <div className="grid grid-cols-2 gap-4">
-                    {/* English */}
-                    <div className="space-y-2">
-                      <h5 className="text-sm font-medium text-gray-700">
-                        English (en-CA)
-                      </h5>
-                      <div>
-                        <label className="block text-xs text-gray-500 mb-1">
-                          Label
-                        </label>
-                        <input
-                          type="text"
-                          value={
-                            claim.display.find((d) => d.lang === 'en-CA')?.label || ''
-                          }
-                          onChange={(e) =>
-                            updateClaimDisplay(claimIndex, 'en-CA', 'label', e.target.value)
-                          }
-                          placeholder="Field Label"
-                          className="w-full px-3 py-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs text-gray-500 mb-1">
-                          Description
-                        </label>
-                        <input
-                          type="text"
-                          value={
-                            claim.display.find((d) => d.lang === 'en-CA')?.description ||
-                            ''
-                          }
-                          onChange={(e) =>
-                            updateClaimDisplay(
-                              claimIndex,
-                              'en-CA',
-                              'description',
-                              e.target.value
-                            )
-                          }
-                          placeholder="Field description"
-                          className="w-full px-3 py-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
-                        />
-                      </div>
+                  {/* Optional Claim Properties */}
+                  <div className="grid grid-cols-3 gap-4">
+                    <div>
+                      <label className="block text-xs text-gray-500 mb-1">
+                        Selective Disclosure
+                      </label>
+                      <select
+                        value={claim.sd || 'allowed'}
+                        onChange={(e) =>
+                          updateClaim(claimIndex, {
+                            sd: e.target.value as 'always' | 'allowed' | 'never',
+                          })
+                        }
+                        className="w-full px-3 py-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
+                      >
+                        <option value="allowed">Allowed</option>
+                        <option value="always">Always</option>
+                        <option value="never">Never</option>
+                      </select>
                     </div>
+                    <div>
+                      <label className="block text-xs text-gray-500 mb-1">
+                        Mandatory
+                      </label>
+                      <select
+                        value={claim.mandatory ? 'true' : 'false'}
+                        onChange={(e) =>
+                          updateClaim(claimIndex, {
+                            mandatory: e.target.value === 'true',
+                          })
+                        }
+                        className="w-full px-3 py-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
+                      >
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs text-gray-500 mb-1">
+                        SVG ID (for templates)
+                      </label>
+                      <input
+                        type="text"
+                        value={claim.svg_id || ''}
+                        onChange={(e) =>
+                          updateClaim(claimIndex, { svg_id: e.target.value || undefined })
+                        }
+                        placeholder="field_name"
+                        className="w-full px-3 py-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm font-mono"
+                      />
+                    </div>
+                  </div>
 
-                    {/* French */}
-                    <div className="space-y-2">
-                      <h5 className="text-sm font-medium text-gray-700">
-                        Français (fr-CA)
-                      </h5>
-                      <div>
-                        <label className="block text-xs text-gray-500 mb-1">
-                          Libellé
-                        </label>
-                        <input
-                          type="text"
-                          value={
-                            claim.display.find((d) => d.lang === 'fr-CA')?.label || ''
-                          }
-                          onChange={(e) =>
-                            updateClaimDisplay(claimIndex, 'fr-CA', 'label', e.target.value)
-                          }
-                          placeholder="Libellé du champ"
-                          className="w-full px-3 py-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs text-gray-500 mb-1">
-                          Description
-                        </label>
-                        <input
-                          type="text"
-                          value={
-                            claim.display.find((d) => d.lang === 'fr-CA')?.description ||
-                            ''
-                          }
-                          onChange={(e) =>
-                            updateClaimDisplay(
-                              claimIndex,
-                              'fr-CA',
-                              'description',
-                              e.target.value
-                            )
-                          }
-                          placeholder="Description du champ"
-                          className="w-full px-3 py-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
-                        />
-                      </div>
+                  {/* Display Labels - Dynamic based on locales */}
+                  <div className="space-y-4">
+                    <h5 className="text-sm font-medium text-gray-700">
+                      Display Labels by Language
+                    </h5>
+                    <div className={`grid gap-4 ${locales.length === 1 ? 'grid-cols-1' : locales.length === 2 ? 'grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}>
+                      {locales.map((locale) => {
+                        const claimDisplay = claim.display.find((d) => d.locale === locale);
+                        return (
+                          <div key={locale} className="space-y-2 p-3 bg-gray-50 rounded-lg">
+                            <h6 className="text-sm font-medium text-gray-700">
+                              {getLocaleName(locale)}
+                            </h6>
+                            <div>
+                              <label className="block text-xs text-gray-500 mb-1">
+                                Label
+                              </label>
+                              <input
+                                type="text"
+                                value={claimDisplay?.label || ''}
+                                onChange={(e) =>
+                                  updateClaimDisplay(claimIndex, locale, 'label', e.target.value)
+                                }
+                                placeholder="Field Label"
+                                className="w-full px-3 py-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-xs text-gray-500 mb-1">
+                                Description
+                              </label>
+                              <input
+                                type="text"
+                                value={claimDisplay?.description || ''}
+                                onChange={(e) =>
+                                  updateClaimDisplay(
+                                    claimIndex,
+                                    locale,
+                                    'description',
+                                    e.target.value
+                                  )
+                                }
+                                placeholder="Field description"
+                                className="w-full px-3 py-1.5 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
+                              />
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
 

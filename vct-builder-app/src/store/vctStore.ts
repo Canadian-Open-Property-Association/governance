@@ -12,6 +12,51 @@ import {
 
 const generateId = () => crypto.randomUUID();
 
+// Legacy type for imported VCTs with old field names
+interface LegacyRendering {
+  simple?: VCTDisplay['rendering']['simple'];
+  svg_template?: { uri: string; 'uri#integrity'?: string; properties?: Record<string, unknown> };
+  svg_templates?: VCTDisplay['rendering']['svg_templates'];
+}
+
+// Helper to normalize imported VCT (handle legacy fields)
+const normalizeVct = (vct: VCT): VCT => {
+  return {
+    ...vct,
+    display: vct.display.map((d) => {
+      const legacyRendering = d.rendering as LegacyRendering | undefined;
+
+      // Convert legacy svg_template (singular) to svg_templates (array)
+      let svgTemplates = legacyRendering?.svg_templates;
+      if (!svgTemplates && legacyRendering?.svg_template?.uri) {
+        svgTemplates = [{
+          uri: legacyRendering.svg_template.uri,
+          'uri#integrity': legacyRendering.svg_template['uri#integrity'],
+          properties: legacyRendering.svg_template.properties as VCTDisplay['rendering']['svg_templates'][0]['properties'],
+        }];
+      }
+
+      return {
+        ...d,
+        // Handle legacy 'lang' field by mapping to 'locale'
+        locale: (d as VCTDisplay & { lang?: string }).lang || d.locale,
+        rendering: d.rendering ? {
+          simple: d.rendering.simple,
+          svg_templates: svgTemplates,
+        } : undefined,
+      };
+    }),
+    claims: (vct.claims || []).map((c) => ({
+      ...c,
+      display: c.display.map((cd) => ({
+        ...cd,
+        // Handle legacy 'lang' field by mapping to 'locale'
+        locale: (cd as { lang?: string; locale?: string }).lang || cd.locale,
+      })),
+    })),
+  };
+};
+
 export const useVctStore = create<VCTStore>()(
   persist(
     (set, get) => ({
@@ -23,7 +68,7 @@ export const useVctStore = create<VCTStore>()(
       savedProjects: [],
 
       // VCT actions
-      setVct: (vct: VCT) => set({ currentVct: vct }),
+      setVct: (vct: VCT) => set({ currentVct: normalizeVct(vct) }),
 
       updateVctField: <K extends keyof VCT>(field: K, value: VCT[K]) =>
         set((state) => ({
@@ -39,14 +84,14 @@ export const useVctStore = create<VCTStore>()(
         })),
 
       // Display actions
-      addDisplay: (lang: string) =>
-        set((state) => ({
-          currentVct: {
+      addDisplay: (locale: string) =>
+        set((state) => {
+          const newVct = {
             ...state.currentVct,
             display: [
               ...state.currentVct.display,
               {
-                lang,
+                locale,
                 name: '',
                 description: '',
                 rendering: {
@@ -57,8 +102,25 @@ export const useVctStore = create<VCTStore>()(
                 },
               },
             ],
-          },
-        })),
+          };
+          // Auto-sync claims to include new locale
+          const updatedClaims = newVct.claims.map((claim) => {
+            const hasLocale = claim.display.some((d) => d.locale === locale);
+            if (!hasLocale) {
+              return {
+                ...claim,
+                display: [
+                  ...claim.display,
+                  { locale, label: '', description: '' },
+                ],
+              };
+            }
+            return claim;
+          });
+          return {
+            currentVct: { ...newVct, claims: updatedClaims },
+          };
+        }),
 
       updateDisplay: (index: number, displayUpdate: Partial<VCTDisplay>) =>
         set((state) => {
@@ -70,30 +132,45 @@ export const useVctStore = create<VCTStore>()(
         }),
 
       removeDisplay: (index: number) =>
-        set((state) => ({
-          currentVct: {
-            ...state.currentVct,
-            display: state.currentVct.display.filter((_, i) => i !== index),
-          },
-        })),
+        set((state) => {
+          const removedLocale = state.currentVct.display[index]?.locale;
+          const newDisplay = state.currentVct.display.filter((_, i) => i !== index);
+          // Also remove the locale from claims
+          const updatedClaims = state.currentVct.claims.map((claim) => ({
+            ...claim,
+            display: claim.display.filter((d) => d.locale !== removedLocale),
+          }));
+          return {
+            currentVct: {
+              ...state.currentVct,
+              display: newDisplay,
+              claims: updatedClaims,
+            },
+          };
+        }),
 
       // Claim actions
       addClaim: () =>
-        set((state) => ({
-          currentVct: {
-            ...state.currentVct,
-            claims: [
-              ...state.currentVct.claims,
-              {
-                path: [''],
-                display: [
-                  { lang: 'en-CA', label: '', description: '' },
-                  { lang: 'fr-CA', label: '', description: '' },
-                ],
-              },
-            ],
-          },
-        })),
+        set((state) => {
+          // Get current locales from display
+          const locales = state.currentVct.display.map((d) => d.locale);
+          return {
+            currentVct: {
+              ...state.currentVct,
+              claims: [
+                ...state.currentVct.claims,
+                {
+                  path: [''],
+                  display: locales.map((locale) => ({
+                    locale,
+                    label: '',
+                    description: '',
+                  })),
+                },
+              ],
+            },
+          };
+        }),
 
       updateClaim: (index: number, claimUpdate: Partial<VCTClaim>) =>
         set((state) => {
@@ -111,6 +188,41 @@ export const useVctStore = create<VCTStore>()(
             claims: state.currentVct.claims.filter((_, i) => i !== index),
           },
         })),
+
+      // Sync claim locales with display locales
+      syncClaimLocales: () =>
+        set((state) => {
+          const displayLocales = state.currentVct.display.map((d) => d.locale);
+          const updatedClaims = state.currentVct.claims.map((claim) => {
+            // Add missing locales
+            const existingLocales = claim.display.map((d) => d.locale);
+            const missingLocales = displayLocales.filter(
+              (l) => !existingLocales.includes(l)
+            );
+            // Remove extra locales
+            const filteredDisplay = claim.display.filter((d) =>
+              displayLocales.includes(d.locale)
+            );
+            // Add missing ones
+            const newDisplay = [
+              ...filteredDisplay,
+              ...missingLocales.map((locale) => ({
+                locale,
+                label: '',
+                description: '',
+              })),
+            ];
+            // Sort to match display order
+            newDisplay.sort(
+              (a, b) =>
+                displayLocales.indexOf(a.locale) - displayLocales.indexOf(b.locale)
+            );
+            return { ...claim, display: newDisplay };
+          });
+          return {
+            currentVct: { ...state.currentVct, claims: updatedClaims },
+          };
+        }),
 
       // Project actions
       newProject: () =>
@@ -164,7 +276,7 @@ export const useVctStore = create<VCTStore>()(
         const project = get().savedProjects.find((p) => p.id === id);
         if (project) {
           set({
-            currentVct: project.vct,
+            currentVct: normalizeVct(project.vct),
             sampleData: project.sampleData,
             currentProjectId: project.id,
             currentProjectName: project.name,
@@ -193,7 +305,7 @@ export const useVctStore = create<VCTStore>()(
         try {
           const vct = JSON.parse(json) as VCT;
           set({
-            currentVct: vct,
+            currentVct: normalizeVct(vct),
             currentProjectId: null,
             currentProjectName: 'Imported',
           });

@@ -97,7 +97,7 @@ export default function MetadataForm() {
                 if (currentVct.schema_uri) {
                   try {
                     const response = await fetch(
-                      `http://localhost:3001/hash?url=${encodeURIComponent(currentVct.schema_uri)}`
+                      `http://localhost:5174/hash?url=${encodeURIComponent(currentVct.schema_uri)}`
                     );
                     const data = await response.json();
                     if (data.hash) {
