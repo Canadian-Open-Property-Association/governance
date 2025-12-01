@@ -6,14 +6,14 @@ theme:
   name: material
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: red
+      accent: red
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: red
+      accent: red
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -29,13 +29,15 @@ theme:
 
 nav:
   - Home: index.md
-  - Governance:
-    - Overview: governance/index.md
-    - Cornerstone ID: governance/cornerstone_id_governance.md
-    - Home Credential: governance/home_credential_governance.md
-    - Professional Credential: governance/professional_credential_governance.md
-    - Portfolio Issuer Credential: governance/portfolio_issuer_credential_governance.md
-    - Property Access Authorization: governance/property_access_authorization_credential_governance.md
+  - Credential Governance:
+    - Overview: credential-governance/index.md
+    - Cornerstone ID: credential-governance/cornerstone_id_governance.md
+    - Home Credential: credential-governance/home_credential_governance.md
+    - Professional Credential: credential-governance/professional_credential_governance.md
+    - Portfolio Issuer Credential: credential-governance/portfolio_issuer_credential_governance.md
+    - Property Access Authorization: credential-governance/property_access_authorization_credential_governance.md
+  - Credential Branding:
+    - Overview: credential-branding/index.md
 
 markdown_extensions:
   - tables

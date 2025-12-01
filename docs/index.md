@@ -8,15 +8,15 @@ The Canadian Open Property Association (COPA) is a cooperative governance body t
 the issuance, verification, and lifecycle of verifiable credentials for the Canadian
 property ecosystem.
 
-## Credential Governance
+## Documentation
 
-COPA governs verifiable credentials that enable trust between homeowners, real estate
-professionals, lenders, insurers, and service providers.
+- [Credential Governance](credential-governance/index.md) - Governance frameworks for verifiable credentials
+- [Credential Branding](credential-branding/index.md) - Branding guidelines and JSON branding files
 
-[View Governance Documentation](governance/index.md){ .md-button .md-button--primary }
+[View Credential Governance](credential-governance/index.md){ .md-button .md-button--primary }
 
 ## Quick Links
 
-- [Cornerstone ID Credential](governance/cornerstone_id_governance.md) - Foundational identity
-- [Home Credential](governance/home_credential_governance.md) - Property ownership
-- [Professional Credential](governance/professional_credential_governance.md) - Licensed professionals
+- [Cornerstone ID Credential](credential-governance/cornerstone_id_governance.md) - Foundational identity
+- [Home Credential](credential-governance/home_credential_governance.md) - Property ownership
+- [Professional Credential](credential-governance/professional_credential_governance.md) - Licensed professionals
