@@ -1,0 +1,54 @@
+site_name: Canadian Open Property Association
+site_url: https://openpropertyassociation.ca
+site_description: Governance documentation for COPA verifiable credentials
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - toc.integrate
+
+nav:
+  - Home: index.md
+  - Governance:
+    - Overview: governance/index.md
+    - Cornerstone ID: governance/cornerstone_id_governance.md
+    - Home Credential: governance/home_credential_governance.md
+    - Professional Credential: governance/professional_credential_governance.md
+    - Portfolio Issuer Credential: governance/portfolio_issuer_credential_governance.md
+    - Property Access Authorization: governance/property_access_authorization_credential_governance.md
+
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Canadian-Open-Property-Association
+
+plugins:
+  - search
