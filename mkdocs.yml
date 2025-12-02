@@ -58,3 +58,5 @@ extra:
 
 plugins:
   - search
+  - macros:
+      module_name: docs/hooks
