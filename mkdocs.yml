@@ -48,6 +48,9 @@ markdown_extensions:
       permalink: true
 
 extra:
+  analytics:
+    provider: google
+    property: G-7W7P8DLR11
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/Canadian-Open-Property-Association

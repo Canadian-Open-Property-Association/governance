@@ -20,3 +20,10 @@ property ecosystem.
 - [Cornerstone ID Credential](credential-governance/cornerstone_id_governance.md) - Foundational identity
 - [Home Credential](credential-governance/home_credential_governance.md) - Property ownership
 - [Professional Credential](credential-governance/professional_credential_governance.md) - Licensed professionals
+
+## COPA Ecosystem
+
+External tools and services in the COPA ecosystem:
+
+- [Trust Registry](https://copa.trustregistry.nborbit.ca/){:target="_blank"} - COPA credential trust registry
+- [VCT Builder](https://vct-builder-app.onrender.com){:target="_blank"} - Verifiable Credential Type builder tool *(coming soon)*
