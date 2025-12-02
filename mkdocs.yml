@@ -40,6 +40,7 @@ nav:
     - Overview: credential-branding/index.md
 
 markdown_extensions:
+  - attr_list
   - tables
   - admonition
   - pymdownx.details
