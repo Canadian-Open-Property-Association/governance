@@ -34,10 +34,13 @@ jobs:
       - name: Build documentation site
         run: mkdocs build
 
+      - name: Copy credentials registry to build output
+        run: cp -r credentials build/credentials
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: build
 
   deploy:
     environment:

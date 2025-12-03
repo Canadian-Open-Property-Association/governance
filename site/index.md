@@ -10,16 +10,18 @@ property ecosystem.
 
 ## Documentation
 
-- [Credential Governance](credential-governance/index.md) - Governance frameworks for verifiable credentials
-- [Credential Branding](credential-branding/index.md) - Branding guidelines and JSON branding files
+- [Governance](governance/index.md) - Governance frameworks for verifiable credentials
+- [Entities](entities/index.md) - Ecosystem participants
+- [Policies](policies/index.md) - Network policies
+- [Data Packages](data-packages/index.md) - Standardized data sharing formats
 
-[View Credential Governance](credential-governance/index.md){ .md-button .md-button--primary }
+[View Governance Documentation](governance/index.md){ .md-button .md-button--primary }
 
 ## Quick Links
 
-- [Cornerstone ID Credential](credential-governance/cornerstone_id_governance.md) - Foundational identity
-- [Home Credential](credential-governance/home_credential_governance.md) - Property ownership
-- [Professional Credential](credential-governance/professional_credential_governance.md) - Licensed professionals
+- [Cornerstone ID Credential](governance/cornerstone-id.md) - Foundational identity
+- [Home Credential](governance/home-credential.md) - Property ownership
+- [Professional Credential](governance/professional-credential.md) - Licensed professionals
 
 ## COPA Ecosystem
 

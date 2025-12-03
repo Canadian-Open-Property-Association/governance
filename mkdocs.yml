@@ -29,15 +29,16 @@ theme:
 
 nav:
   - Home: index.md
-  - Credential Governance:
-    - Overview: credential-governance/index.md
-    - Cornerstone ID: credential-governance/cornerstone_id_governance.md
-    - Home Credential: credential-governance/home_credential_governance.md
-    - Professional Credential: credential-governance/professional_credential_governance.md
-    - Portfolio Issuer Credential: credential-governance/portfolio_issuer_credential_governance.md
-    - Property Access Authorization: credential-governance/property_access_authorization_credential_governance.md
-  - Credential Branding:
-    - Overview: credential-branding/index.md
+  - Governance:
+    - Overview: governance/index.md
+    - Cornerstone ID: governance/cornerstone-id.md
+    - Home Credential: governance/home-credential.md
+    - Professional Credential: governance/professional-credential.md
+    - Portfolio Issuer: governance/portfolio-issuer.md
+    - Property Access Authorization: governance/property-access-authorization.md
+  - Entities: entities/index.md
+  - Policies: policies/index.md
+  - Data Packages: data-packages/index.md
 
 markdown_extensions:
   - attr_list
@@ -56,7 +57,10 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/Canadian-Open-Property-Association
 
+docs_dir: site
+site_dir: build
+
 plugins:
   - search
   - macros:
-      module_name: docs/hooks
+      module_name: site/hooks

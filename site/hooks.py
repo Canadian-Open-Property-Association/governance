@@ -6,7 +6,7 @@ def define_env(env):
     @env.macro
     def get_vct_files():
         """Get list of VCT JSON files with their metadata."""
-        vct_dir = Path(env.conf['docs_dir']) / 'credential-branding' / 'vct-types'
+        vct_dir = Path(env.conf['docs_dir']).parent / 'credentials' / 'vct'
         vct_files = []
         if vct_dir.exists():
             for f in vct_dir.glob('*.json'):
