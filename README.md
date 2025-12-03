@@ -24,13 +24,7 @@ governance/
 │   │   ├── portfolio-issuer.md
 │   │   └── property-access-authorization.md
 │   │
-│   ├── entities/                      # Ecosystem participants
-│   │   └── index.md
-│   │
 │   ├── policies/                      # Network policies
-│   │   └── index.md
-│   │
-│   ├── data-packages/                 # Data package templates
 │   │   └── index.md
 │   │
 │   └── assets/
@@ -62,9 +56,7 @@ governance/
 | `credentials/vct/` | Verifiable Credential Type definitions (branding) | Wallet apps, credential viewers |
 | `site/` | Human-readable content (MkDocs source) | Website, third-party apps |
 | `site/governance/` | Credential governance frameworks | Humans, governance dashboards |
-| `site/entities/` | Ecosystem participant documentation | Humans, entity registries |
 | `site/policies/` | Network policies | Humans, policy engines |
-| `site/data-packages/` | Data package templates | Humans, data exchange systems |
 
 ## Standards
 
@@ -125,7 +117,7 @@ For each credential type (e.g., `cornerstone-id`):
 
 | Type | Convention | Example |
 |------|------------|---------|
-| Folders | `kebab-case` | `credentials/`, `data-packages/` |
+| Folders | `kebab-case` | `credentials/` |
 | Markdown files | `kebab-case.md` | `cornerstone-id.md` |
 | VCT files | `kebab-case.json` | `cornerstone-id.json` |
 | Schema files | `kebab-case.json` | `cornerstone-id.json` |

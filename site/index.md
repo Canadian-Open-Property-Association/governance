@@ -10,12 +10,10 @@ property ecosystem.
 
 ## Documentation
 
-- [Governance](governance/index.md) - Governance frameworks for verifiable credentials
-- [Entities](entities/index.md) - Ecosystem participants
+- [Credential Governance](governance/index.md) - Governance frameworks for verifiable credentials
 - [Policies](policies/index.md) - Network policies
-- [Data Packages](data-packages/index.md) - Standardized data sharing formats
 
-[View Governance Documentation](governance/index.md){ .md-button .md-button--primary }
+[View Credential Governance](governance/index.md){ .md-button .md-button--primary }
 
 ## Quick Links
 

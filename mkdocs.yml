@@ -29,16 +29,14 @@ theme:
 
 nav:
   - Home: index.md
-  - Governance:
+  - Credential Governance:
     - Overview: governance/index.md
     - Cornerstone ID: governance/cornerstone-id.md
     - Home Credential: governance/home-credential.md
     - Professional Credential: governance/professional-credential.md
     - Portfolio Issuer: governance/portfolio-issuer.md
     - Property Access Authorization: governance/property-access-authorization.md
-  - Entities: entities/index.md
   - Policies: policies/index.md
-  - Data Packages: data-packages/index.md
 
 markdown_extensions:
   - attr_list
