@@ -1,0 +1,64 @@
+{
+  "vct": "",
+  "name": "",
+  "description": "",
+  "schema_uri": "",
+  "display": [
+    {
+      "locale": "en-CA",
+      "name": "Cornerstone ID",
+      "description": "",
+      "rendering": {
+        "simple": {
+          "background_color": "#000000",
+          "text_color": "#FFFFFF"
+        },
+        "svg_templates": {}
+      },
+      "card_elements": {
+        "front": {
+          "network_mark": {
+            "position": "top_right",
+            "value": "cornerstone",
+            "logo_uri": "/assets/1764790416580-a4vuf7.png"
+          },
+          "portfolio_issuer": {
+            "logo_uri": "/assets/1764788439450-6xc5h3.png"
+          },
+          "credential_issuer": {
+            "value": "Cornerstone Platform Inc."
+          },
+          "primary_attribute": {
+            "value": "101 Street"
+          },
+          "secondary_attribute": {
+            "value": "John Smith"
+          }
+        },
+        "back": {
+          "metadata": {
+            "position": "top",
+            "fields": [
+              "issued_at",
+              "expires_at"
+            ]
+          },
+          "evidence": {
+            "position": "center_bottom",
+            "sources": [
+              {
+                "type": "data_furnisher",
+                "id": "Interac Verified",
+                "display": "Interac Verified",
+                "badge": "logo",
+                "logo_uri": "/assets/1764790269837-d3ok41.png",
+                "description": "Interac Verified"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "claims": []
+}
