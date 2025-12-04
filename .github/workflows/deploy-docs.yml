@@ -31,6 +31,11 @@ jobs:
         run: |
           pip install mkdocs-material mkdocs-macros-plugin
 
+      - name: Copy governance docs to site folder
+        run: |
+          mkdir -p site/governance
+          cp -r credentials/governance-docs/* site/governance/
+
       - name: Build documentation site
         run: mkdocs build
 
