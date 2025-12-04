@@ -8,7 +8,8 @@ This section contains governance documentation for all COPA-managed verifiable c
 |------------|-------------|--------|
 | [Cornerstone ID](cornerstone-id.md) | Foundational person-level identity credential | Cornerstone Platform Inc. |
 | [Home Credential](home-credential.md) | Property ownership and homeownership verification | Cornerstone Platform Inc. |
-| [Professional Credential](professional-credential.md) | Licensed professional verification | Cornerstone Platform Inc. |
+| [Professional Credential](professional-credential.md) | Organizational affiliation (employment/contractor/delegate) | Employer Organizations |
+| [Accreditation Credential](accreditation-credential.md) | Professional license/registration from regulatory body | Cornerstone Platform Inc. |
 | [Portfolio Issuer](portfolio-issuer.md) | Portfolio issuer authorization | COPA |
 | [Property Access Authorization](property-access-authorization.md) | Property access permissions | Portfolio Issuers |
 
