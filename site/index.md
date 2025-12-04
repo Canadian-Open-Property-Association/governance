@@ -25,5 +25,4 @@ property ecosystem.
 
 External tools and services in the COPA ecosystem:
 
-- [Trust Registry](https://copa.trustregistry.nborbit.ca/){:target="_blank"} - System of record for ecosystem entities and authorities
-- [VCT Builder](https://vct-builder-app.onrender.com){:target="_blank"} - Verifiable Credential Type builder tool
+- [Credential Design Tools](https://credential-design-tools.openpropertyassociation.ca){:target="_blank"} - Tools for building credential schemas and VCT branding files
