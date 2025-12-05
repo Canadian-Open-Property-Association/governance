@@ -4,6 +4,8 @@ site_description: Governance documentation for COPA verifiable credentials
 
 theme:
   name: material
+  favicon: copa-favicon.png
+  logo: copa-favicon.png
   palette:
     - scheme: default
       primary: red
