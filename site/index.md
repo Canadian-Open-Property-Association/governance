@@ -21,8 +21,8 @@ property ecosystem.
 - [Home Credential](governance/home-credential.md) - Property ownership
 - [Professional Credential](governance/professional-credential.md) - Licensed professionals
 
-## COPA Ecosystem
+## COPA Apps
 
-External tools and services in the COPA ecosystem:
+Applications and tools in the COPA ecosystem:
 
-- [Credential Design Tools](https://credential-design-tools.openpropertyassociation.ca){:target="_blank"} - Tools for building credential schemas and VCT branding files
+- [COPA Apps](https://apps.openpropertyassociation.ca){:target="_blank"} - Tools for building credential schemas, VCT branding files, and zone templates
