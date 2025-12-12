@@ -32,6 +32,13 @@ theme:
 
 nav:
   - Home: index.md
+  - Solution Architecture:
+    - Overview: architecture/index.md
+    - Vocabulary: architecture/vocabulary.md
+    - Artifacts: architecture/artifacts.md
+    - Data Flow: architecture/data-flow.md
+    - COPA Apps: architecture/apps.md
+    - VDR Structure: architecture/vdr.md
   - Credential Governance:
     - Overview: governance/index.md
     - Cornerstone ID: governance/cornerstone-id.md
@@ -47,9 +54,16 @@ markdown_extensions:
   - tables
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - toc:
       permalink: true
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
 
 extra:
   analytics:
