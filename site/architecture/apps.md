@@ -1,4 +1,4 @@
-# COPA Apps
+# Cornerstone Network Apps
 
 ## Overview
 

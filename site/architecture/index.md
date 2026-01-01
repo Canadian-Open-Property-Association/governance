@@ -4,7 +4,7 @@
 
 This document describes the architecture of the Canadian Open Property Association (COPA) credential ecosystem. The system enables the issuance of verifiable credentials backed by authoritative data sources, with full traceability from raw data to issued credentials.
 
-**Key Insight**: Everything within the governance boundary is managed through COPA Apps and published to GitHub (our Verifiable Data Registry). The credential exchange layer sits outside this boundary but relies on VDR artifacts for credential offers and rendering.
+**Key Insight**: Everything within the governance boundary is managed through Cornerstone Network Apps and published to GitHub (our Verifiable Data Registry). The credential exchange layer sits outside this boundary but relies on VDR artifacts for credential offers and rendering.
 
 ---
 
@@ -12,11 +12,11 @@ This document describes the architecture of the Canadian Open Property Associati
 
 ### Governance Layer
 
-COPA Apps define vocabulary, schemas, entities, and mappings - all published to the Verifiable Data Registry (GitHub).
+Cornerstone Network Apps define vocabulary, schemas, entities, and mappings - all published to the Verifiable Data Registry (GitHub).
 
 ```mermaid
 flowchart TB
-    subgraph Apps["COPA Apps"]
+    subgraph Apps["Cornerstone Network Apps"]
         DD["Data Dictionary"]
         DH["Data Harmonization"]
         EM["Entity Manager"]
@@ -80,7 +80,7 @@ flowchart TB
 
 Everything **inside** the governance boundary is:
 
-- Defined through COPA Apps
+- Defined through Cornerstone Network Apps
 - Published to the GitHub VDR
 - Versioned and auditable
 - Resolvable via stable URLs
@@ -97,7 +97,7 @@ Everything **outside** the governance boundary is:
 
 The COPA credential ecosystem separates:
 
-1. **Governance** (COPA Apps + GitHub VDR) - Defines vocabulary (RESO + extensions), schemas, VCTs, entities, and harmonization mappings
+1. **Governance** (Cornerstone Network Apps + GitHub VDR) - Defines vocabulary (RESO + extensions), schemas, VCTs, entities, and harmonization mappings
 2. **Exchange** (Issuance services + Wallets) - Fetches VCTs for credential offers, issues credentials, renders in wallets
 
 This separation provides:

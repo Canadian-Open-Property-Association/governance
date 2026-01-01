@@ -21,8 +21,8 @@ property ecosystem.
 - [Home Credential](governance/home-credential.md) - Property ownership
 - [Professional Credential](governance/professional-credential.md) - Licensed professionals
 
-## COPA Apps
+## Cornerstone Network Apps
 
-Applications and tools in the COPA ecosystem:
+Applications and tools in the Cornerstone ecosystem:
 
-- [COPA Apps](https://apps.openpropertyassociation.ca){:target="_blank"} - Tools for building credential schemas, VCT branding files, and zone templates
+- [Cornerstone Network Apps](https://apps.openpropertyassociation.ca){:target="_blank"} - Tools for building credential schemas, VCT branding files, and zone templates
