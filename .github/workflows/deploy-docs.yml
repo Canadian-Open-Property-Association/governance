@@ -33,8 +33,8 @@ jobs:
 
       - name: Copy governance docs to site folder
         run: |
-          mkdir -p site/governance
-          cp -r credentials/governance-docs/* site/governance/
+          mkdir -p site/credential-governance
+          cp -r credentials/governance-docs/* site/credential-governance/
 
       - name: Build documentation site
         run: mkdocs build

@@ -10,16 +10,16 @@ property ecosystem.
 
 ## Documentation
 
-- [Credential Governance](governance/index.md) - Governance frameworks for verifiable credentials
+- [Credential Governance](credential-governance/index.md) - Governance frameworks for verifiable credentials
 - [Policies](policies/index.md) - Network policies
 
-[View Credential Governance](governance/index.md){ .md-button .md-button--primary }
+[View Credential Governance](credential-governance/index.md){ .md-button .md-button--primary }
 
 ## Quick Links
 
-- [Cornerstone ID Credential](governance/cornerstone-id.md) - Foundational identity
-- [Home Credential](governance/home-credential.md) - Property ownership
-- [Professional Credential](governance/professional-credential.md) - Licensed professionals
+- [Cornerstone ID Credential](credential-governance/cornerstone-id.md) - Foundational identity
+- [Home Credential](credential-governance/home-credential.md) - Property ownership
+- [Professional Credential](credential-governance/professional-credential.md) - Licensed professionals
 
 ## Cornerstone Network Apps
 
