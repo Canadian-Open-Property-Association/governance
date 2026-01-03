@@ -13,8 +13,6 @@ property ecosystem.
 - [Credential Governance](credential-governance/index.md) - Governance frameworks for verifiable credentials
 - [Policies](policies/index.md) - Network policies
 
-[View Credential Governance](credential-governance/index.md){ .md-button .md-button--primary }
-
 ## Quick Links
 
 - [Cornerstone ID Credential](credential-governance/cornerstone-id.md) - Foundational identity
