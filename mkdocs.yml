@@ -1,11 +1,11 @@
-site_name: Canadian Open Property Association
+site_name: Cornerstone Network
 site_url: https://openpropertyassociation.ca
-site_description: Governance documentation for COPA verifiable credentials
+site_description: Governance documentation for Cornerstone Network verifiable credentials
 
 theme:
   name: material
-  favicon: copa-favicon.png
-  logo: copa-favicon.png
+  favicon: cornerstone-logo.png
+  logo: cornerstone-logo.png
   palette:
     - scheme: default
       primary: red
