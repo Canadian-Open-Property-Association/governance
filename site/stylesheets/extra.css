@@ -41,6 +41,26 @@
   border-bottom: 2px solid #ffffff;
 }
 
+/* ===== LIGHT MODE LINK STYLING ===== */
+
+/* Content links in light mode - consistent blue */
+[data-md-color-scheme="default"] .md-typeset a {
+  color: #1a73e8;
+}
+
+[data-md-color-scheme="default"] .md-typeset a:hover {
+  color: #1557b0;
+}
+
+/* Table links in light mode */
+[data-md-color-scheme="default"] .md-typeset table a {
+  color: #1a73e8;
+}
+
+[data-md-color-scheme="default"] .md-typeset table a:hover {
+  color: #1557b0;
+}
+
 /* ===== DARK MODE (slate scheme) FIXES ===== */
 
 /* Links in dark mode - make them lighter and more visible */
