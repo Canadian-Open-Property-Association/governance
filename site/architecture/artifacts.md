@@ -71,7 +71,7 @@ The VCT is the **primary artifact** the issuance service fetches to create a cre
 
 - `schema_uri` → References the JSON Schema for validation
 - Each claim maps 1:1 to a schema property
-- `vocab_binding` → Links to RESO or COPA vocabulary term
+- `vocab_binding` → Links to RESO or Cornerstone vocabulary term
 - `acceptable_evidence` → Lists valid data source fields for this claim
 
 ---
@@ -79,15 +79,15 @@ The VCT is the **primary artifact** the issuance service fetches to create a cre
 ## 3. Vocabulary / JSON-LD Context (Semantics)
 
 **Created by**: Data Dictionary
-**Published to**: `credentials/contexts/copa-vocab.jsonld`
-**Purpose**: Canonical semantic definitions (RESO base + COPA extensions)
+**Published to**: `credentials/contexts/cornerstone-vocab.jsonld`
+**Purpose**: Canonical semantic definitions (RESO base + Cornerstone extensions)
 
 ```json
 {
   "@context": {
     "@version": 1.1,
     "reso": "https://ddwiki.reso.org/display/DDW20/",
-    "copa": "https://openpropertyassociation.ca/vocab#",
+    "cornerstone": "https://openpropertyassociation.ca/vocab#",
 
     "Property": {
       "@id": "reso:Property",
@@ -99,10 +99,10 @@ The VCT is the **primary artifact** the issuance service fetches to create a cre
     },
 
     "Person": {
-      "@id": "copa:Person",
+      "@id": "cornerstone:Person",
       "@context": {
-        "givenName": "copa:givenName",
-        "familyName": "copa:familyName"
+        "givenName": "cornerstone:givenName",
+        "familyName": "cornerstone:familyName"
       }
     }
   }
@@ -119,10 +119,10 @@ The VCT is the **primary artifact** the issuance service fetches to create a cre
 
 ```json
 {
-  "id": "copa-furnisher-example",
+  "id": "furnisher-example",
   "name": "Example Data Furnisher",
   "types": ["data-furnisher"],
-  "logoUri": "https://openpropertyassociation.ca/credentials/entities/logos/copa-furnisher-example.png",
+  "logoUri": "https://openpropertyassociation.ca/credentials/entities/logos/furnisher-example.png",
   "dataSources": [
     {
       "id": "assessment-api",
@@ -143,7 +143,7 @@ The VCT is the **primary artifact** the issuance service fetches to create a cre
 
 **Created by**: Data Harmonization App
 **Published to**: `credentials/harmonization/mappings.json`
-**Purpose**: Map data furnisher fields to RESO/COPA vocabulary terms
+**Purpose**: Map data furnisher fields to RESO/Cornerstone vocabulary terms
 
 ```json
 {
@@ -152,12 +152,12 @@ The VCT is the **primary artifact** the issuance service fetches to create a cre
       "vocabTerm": "reso:AssessedValue",
       "sources": [
         {
-          "entityId": "copa-furnisher-a",
+          "entityId": "furnisher-a",
           "sourceId": "assessment-api",
           "fieldPath": "assessed_val"
         },
         {
-          "entityId": "copa-furnisher-b",
+          "entityId": "furnisher-b",
           "sourceId": "property-data",
           "fieldPath": "property_value"
         }

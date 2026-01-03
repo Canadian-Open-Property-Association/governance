@@ -52,7 +52,7 @@ When a credential is issued, evidence fields capture the data source:
     {
       "type": "DataSourceEvidence",
       "verifier": "https://openpropertyassociation.ca",
-      "sourceEntity": "https://openpropertyassociation.ca/credentials/entities/copa-furnisher-example.json",
+      "sourceEntity": "https://openpropertyassociation.ca/credentials/entities/furnisher-example.json",
       "sourceName": "Example Data Furnisher",
       "verificationDate": "2024-12-11T10:30:00Z",
       "claimsCovered": ["AssessedValue", "UnparsedAddress"]
@@ -76,12 +76,12 @@ A single credential may combine data from multiple furnishers:
 "evidence": [
   {
     "type": "DataSourceEvidence",
-    "sourceEntity": "copa-furnisher-a",
+    "sourceEntity": "furnisher-a",
     "claimsCovered": ["givenName", "familyName"]
   },
   {
     "type": "DataSourceEvidence",
-    "sourceEntity": "copa-furnisher-b",
+    "sourceEntity": "furnisher-b",
     "claimsCovered": ["AssessedValue", "UnparsedAddress"]
   }
 ]

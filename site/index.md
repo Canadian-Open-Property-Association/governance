@@ -1,10 +1,10 @@
-# Canadian Open Property Association
+# Cornerstone Network
 
-Welcome to the COPA documentation portal.
+Welcome to the Cornerstone Network documentation portal.
 
-## About COPA
+## About Cornerstone Network
 
-The Canadian Open Property Association (COPA) is a cooperative governance body that manages
+The Cornerstone Network is a cooperative governance body that manages
 the issuance, verification, and lifecycle of verifiable credentials for the Canadian
 property ecosystem.
 

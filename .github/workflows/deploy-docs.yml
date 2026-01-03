@@ -36,6 +36,12 @@ jobs:
           mkdir -p site/governance
           cp -r credentials/governance-docs/* site/governance/
 
+      - name: Copy overrides folder if exists
+        run: |
+          if [ -d "overrides" ]; then
+            cp -r overrides/* site/ 2>/dev/null || true
+          fi
+
       - name: Build documentation site
         run: mkdocs build
 

@@ -9,19 +9,19 @@ verifiable-credentials/
 │   │   ├── cornerstone-id.json
 │   │   └── home-credential.json
 │   │
-│   ├── contexts/                   # JSON-LD Vocabulary (RESO + COPA)
-│   │   └── copa-vocab.jsonld
+│   ├── contexts/                   # JSON-LD Vocabulary (RESO + Cornerstone)
+│   │   └── cornerstone-vocab.jsonld
 │   │
 │   ├── vct/                        # Verifiable Credential Types
 │   │   ├── cornerstone-id.json
 │   │   └── home-credential.json
 │   │
 │   ├── entities/                   # Entity metadata & assets
-│   │   ├── copa-entity-a.json
-│   │   ├── copa-entity-b.json
+│   │   ├── entity-a.json
+│   │   ├── entity-b.json
 │   │   └── logos/
-│   │       ├── copa-entity-a.png
-│   │       └── copa-entity-b.png
+│   │       ├── entity-a.png
+│   │       └── entity-b.png
 │   │
 │   ├── harmonization/              # Data mappings
 │   │   └── mappings.json
@@ -41,7 +41,7 @@ verifiable-credentials/
 |----------|-------------|
 | Schema | `https://openpropertyassociation.ca/credentials/schemas/{type}.json` |
 | VCT | `https://openpropertyassociation.ca/credentials/vct/{type}.json` |
-| Vocab | `https://openpropertyassociation.ca/credentials/contexts/copa-vocab.jsonld` |
+| Vocab | `https://openpropertyassociation.ca/credentials/contexts/cornerstone-vocab.jsonld` |
 | Entity | `https://openpropertyassociation.ca/credentials/entities/{id}.json` |
 | Logo | `https://openpropertyassociation.ca/credentials/entities/logos/{id}.png` |
 | Governance | `https://openpropertyassociation.ca/credentials/governance-docs/{type}.md` |
@@ -52,11 +52,11 @@ verifiable-credentials/
 
 | Artifact | Pattern | Example |
 |----------|---------|---------|
-| Entity ID | `copa-{name}` | `copa-furnisher-a` |
+| Entity ID | `{name}` | `furnisher-a` |
 | Schema file | `{credential-type}.json` | `home-credential.json` |
 | VCT file | `{credential-type}.json` | `home-credential.json` |
 | RESO vocab term | `reso:{term}` | `reso:AssessedValue` |
-| COPA vocab term | `copa:{term}` | `copa:givenName` |
+| Cornerstone vocab term | `cornerstone:{term}` | `cornerstone:givenName` |
 | Data source field | `{entity}:{field}` | `furnisher:assessed_val` |
 
 ---
@@ -109,7 +109,7 @@ verifiable-credentials/
 │  Verifiable Credential                                                       │
 │       │                                                                      │
 │       ├── credentialSubject.AssessedValue = 500000                           │
-│       └── evidence[0].sourceEntity = "copa-furnisher-example"                │
+│       └── evidence[0].sourceEntity = "furnisher-example"                     │
 │                                                                              │
 │  Wallet                                                                      │
 │       │                                                                      │

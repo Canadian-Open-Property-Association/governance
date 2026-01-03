@@ -4,7 +4,7 @@
 
 | App | Purpose | Inputs | Outputs (to VDR) |
 |-----|---------|--------|------------------|
-| **Data Dictionary** | Manage RESO + COPA vocabulary | RESO definitions, domain knowledge | `credentials/contexts/copa-vocab.jsonld` |
+| **Data Dictionary** | Manage RESO + Cornerstone vocabulary | RESO definitions, domain knowledge | `credentials/contexts/cornerstone-vocab.jsonld` |
 | **Data Harmonization** | Map furnisher fields to vocab | Entities (data sources), Vocab (terms) | `credentials/harmonization/mappings.json` |
 | **Entity Manager** | Onboard ecosystem entities | Entity information, data source specs | `credentials/entities/*.json` |
 | **Schema Builder** | Define credential structure | Vocab terms from Data Dictionary | `credentials/schemas/*.json` |
@@ -17,7 +17,7 @@
 ```mermaid
 flowchart LR
     subgraph Vocabulary["Vocabulary Layer"]
-        DD["Data Dictionary<br/>(RESO + COPA)"]
+        DD["Data Dictionary<br/>(RESO + Cornerstone)"]
         DH["Data Harmonization"]
     end
 
@@ -42,7 +42,7 @@ flowchart LR
 The Data Dictionary manages the canonical vocabulary for the ecosystem:
 
 - **RESO Base**: Industry-standard property and real estate terms
-- **COPA Extensions**: Custom terms for identity, financial, and badge credentials
+- **Cornerstone Extensions**: Custom terms for identity, financial, and badge credentials
 - **Output**: JSON-LD context file with semantic definitions
 
 ### Data Harmonization
@@ -50,7 +50,7 @@ The Data Dictionary manages the canonical vocabulary for the ecosystem:
 Maps raw data from furnishers to canonical vocabulary terms:
 
 - **Input**: Entity data sources (from Entity Manager), Vocab terms (from Data Dictionary)
-- **Output**: Mapping file linking furnisher fields to RESO/COPA terms
+- **Output**: Mapping file linking furnisher fields to RESO/Cornerstone terms
 - **Purpose**: Enables multiple furnishers to provide semantically equivalent data
 
 ### Entity Manager

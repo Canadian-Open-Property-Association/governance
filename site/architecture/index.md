@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This document describes the architecture of the Canadian Open Property Association (COPA) credential ecosystem. The system enables the issuance of verifiable credentials backed by authoritative data sources, with full traceability from raw data to issued credentials.
+This document describes the architecture of the Cornerstone Network credential ecosystem. The system enables the issuance of verifiable credentials backed by authoritative data sources, with full traceability from raw data to issued credentials.
 
 **Key Insight**: Everything within the governance boundary is managed through Cornerstone Network Apps and published to GitHub (our Verifiable Data Registry). The credential exchange layer sits outside this boundary but relies on VDR artifacts for credential offers and rendering.
 
@@ -29,7 +29,7 @@ flowchart TB
     end
 
     subgraph VDR["Verifiable Data Registry (GitHub)"]
-        Vocab["contexts/<br/>RESO + COPA"]
+        Vocab["contexts/<br/>RESO + Cornerstone"]
         Harmonization["harmonization/"]
         Entities["entities/"]
         Schemas["schemas/"]
@@ -95,7 +95,7 @@ Everything **outside** the governance boundary is:
 
 ## Summary
 
-The COPA credential ecosystem separates:
+The Cornerstone Network credential ecosystem separates:
 
 1. **Governance** (Cornerstone Network Apps + GitHub VDR) - Defines vocabulary (RESO + extensions), schemas, VCTs, entities, and harmonization mappings
 2. **Exchange** (Issuance services + Wallets) - Fetches VCTs for credential offers, issues credentials, renders in wallets
