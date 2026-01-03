@@ -2,7 +2,7 @@
 
 ## 1. About this Document
 
-This document describes the **Portfolio Issuer Credential** verifiable credential to help potential verifiers determine whether it is suitable for their needs. The intended audience includes Network Partners, COPA governance bodies, real estate professionals, mortgage brokers, insurance agents, and any relying parties requiring verified Portfolio Issuer status.
+This document describes the **Portfolio Issuer Credential** verifiable credential to help potential verifiers determine whether it is suitable for their needs. The intended audience includes Network Partners, Cornerstone Network governance bodies, real estate professionals, mortgage brokers, insurance agents, and any relying parties requiring verified Portfolio Issuer status.
 
 The Portfolio Issuer Credential is issued by **Network Partners (NPs)** or **Cornerstone Platform Inc. on behalf of Network Partners** to licensed professionals who are authorized to create homeowner portfolios, issue credentials to homeowners, and approve homeowner onboarding to the Cornerstone network.
 
@@ -26,7 +26,7 @@ The Portfolio Issuer Credential is a verifiable credential (VC) issued to profes
 
 This credential serves as a **capability layer** on top of the Professional Credential:
 - **Requires Professional Credential (Verified Advisor) as prerequisite**
-- **Granted by Network Partners or COPA** to approved individuals or organizations
+- **Granted by Network Partners or Cornerstone Network** to approved individuals or organizations
 - **Enables portfolio creation authority**: Issue Cornerstone IDs and Home Credentials to homeowners
 - **Two types**: Organizational Portfolio Issuers (entity-level) and Delegate Portfolio Issuers (individual professionals)
 - **Supports credential-based access control**: Applications verify Portfolio Issuer credentials to enable portfolio creation features
@@ -34,7 +34,7 @@ This credential serves as a **capability layer** on top of the Professional Cred
 
 Each issuance is backed by:
 - Valid Professional Credential (Verified Advisor)
-- Network Partner attestation (approval by NP or COPA)
+- Network Partner attestation (approval by NP or Cornerstone Network)
 - Organization affiliation verification
 
 The credential is issued directly into the **Cornerstone Wallet** and can be consumed by relying parties to verify Portfolio Issuer authority.
@@ -70,7 +70,7 @@ Cornerstone ID (foundation)
 | 005         | Can Issue Portfolios | `canIssuePortfolios` | Boolean    | Always `true` for valid Portfolio Issuer credentials. |
 | 006         | Scope             | `scope`              | JSON object   | Optional: Regions, offices, or service areas where Portfolio Issuer authority applies. |
 | 007         | Granted Date      | `grantedDate`        | ISO 8601 timestamp | Date when Portfolio Issuer capability was granted. |
-| 008         | Granting Authority | `grantingAuthority` | String        | Entity that granted authority (NP name or "COPA"). |
+| 008         | Granting Authority | `grantingAuthority` | String        | Entity that granted authority (NP name or "Cornerstone Network"). |
 | 009         | Professional Credential Reference | `professional_credential_ref` | String (UUID) | Reference to the underlying Professional Credential (required prerequisite). |
 | 010         | Portfolio Issuer Evidence | `portfolio_issuer_evidence` | String / URI | UUID + source of Portfolio Issuer attestation evidence. |
 
@@ -89,7 +89,7 @@ Each credential is issued only after:
 
 ### 3.2 Schema and Credential Definition Governance
 
-The Portfolio Issuer Credential schema and definition are managed by **COPA** and registered on the **COPA Trust Registry**. COPA governs badge schemas, trust lists, data catalogues, and network policies across the ecosystem. Updates to the Portfolio Issuer schema follow a change-managed governance process to ensure interoperability across all applications accessing the Cornerstone network.
+The Portfolio Issuer Credential schema and definition are managed by **Cornerstone Network** and registered on the **Cornerstone Network Trust Registry**. Cornerstone Network governs badge schemas, trust lists, data catalogues, and network policies across the ecosystem. Updates to the Portfolio Issuer schema follow a change-managed governance process to ensure interoperability across all applications accessing the Cornerstone network.
 
 ### 3.3 Issuer Data Source
 
@@ -139,7 +139,7 @@ Re-issuance involves re-verification of Professional Credential status, Network 
 
 ### 4.1 Credential Schema
 
-The Portfolio Issuer Credential conforms to W3C Verifiable Credentials and uses a COPA-managed schema:
+The Portfolio Issuer Credential conforms to W3C Verifiable Credentials and uses a Cornerstone Network-managed schema:
 
 - **Schema ID (URI):** `https://schema.cornerstoneplatform.ca/v1/portfolio-issuer.json`
 - **Schema Versioning:** Breaking changes produce a new schema version.
@@ -185,7 +185,7 @@ The subject is the **individual professional or organization**, bound to their C
 <table>
   <tr><th>Attribute</th><td><code>npId</code></td></tr>
   <tr><th>Description</th><td>Identifier of the Network Partner granting this Portfolio Issuer credential.</td></tr>
-  <tr><th>Source</th><td>COPA Trust Registry Network Partner records.</td></tr>
+  <tr><th>Source</th><td>Cornerstone Network Trust Registry Network Partner records.</td></tr>
   <tr><th>Data Type</th><td>String (UUID format)</td></tr>
   <tr><th>Examples</th><td><code>a1b2c3d4-e5f6-7890-abcd-ef1234567890</code></td></tr>
   <tr><th>Required</th><td>Yes</td></tr>
@@ -196,7 +196,7 @@ The subject is the **individual professional or organization**, bound to their C
 <table>
   <tr><th>Attribute</th><td><code>np_name</code></td></tr>
   <tr><th>Description</th><td>Human-readable name of the Network Partner.</td></tr>
-  <tr><th>Source</th><td>COPA Trust Registry Network Partner records.</td></tr>
+  <tr><th>Source</th><td>Cornerstone Network Trust Registry Network Partner records.</td></tr>
   <tr><th>Data Type</th><td>String</td></tr>
   <tr><th>Examples</th><td><code>Sutton Group</code>, <code>Dominion Lending</code></td></tr>
   <tr><th>Required</th><td>Yes</td></tr>
@@ -228,10 +228,10 @@ The subject is the **individual professional or organization**, bound to their C
 
 <table>
   <tr><th>Attribute</th><td><code>grantingAuthority</code></td></tr>
-  <tr><th>Description</th><td>Entity that granted Portfolio Issuer authority (Network Partner name or "COPA" for COPA-issued credentials).</td></tr>
-  <tr><th>Source</th><td>Network Partner or COPA attestation.</td></tr>
+  <tr><th>Description</th><td>Entity that granted Portfolio Issuer authority (Network Partner name or "Cornerstone Network" for Cornerstone Network-issued credentials).</td></tr>
+  <tr><th>Source</th><td>Network Partner or Cornerstone Network attestation.</td></tr>
   <tr><th>Data Type</th><td>String</td></tr>
-  <tr><th>Examples</th><td><code>Sutton Group</code>, <code>COPA</code></td></tr>
+  <tr><th>Examples</th><td><code>Sutton Group</code>, <code>Cornerstone Network</code></td></tr>
   <tr><th>Required</th><td>Yes</td></tr>
 </table>
 
@@ -285,21 +285,21 @@ Each evidence object must include:
 <table>
   <tr><th>Field</th><th>Description</th><th>Required</th></tr>
   <tr><td><code>type</code></td><td>Type of evidence (e.g., "Attestation", "OrganizationVerification")</td><td>Yes</td></tr>
-  <tr><td><code>method</code></td><td>Verification method used (e.g., "NetworkPartnerAttestation", "COPAAuthorization")</td><td>Yes</td></tr>
+  <tr><td><code>method</code></td><td>Verification method used (e.g., "NetworkPartnerAttestation", "Cornerstone NetworkAuthorization")</td><td>Yes</td></tr>
   <tr><td><code>verificationDate</code></td><td>ISO 8601 timestamp of when authorization occurred</td><td>Yes</td></tr>
   <tr><td><code>matchFields</code></td><td>Array of fields that were verified (e.g., ["professional_credential", "organization_affiliation", "np_approval"])</td><td>Yes</td></tr>
   <tr><td><code>recordLocator</code></td><td>Reference to stored evidence record (UUID or URI)</td><td>Yes</td></tr>
-  <tr><td><code>verifier</code></td><td>Entity that performed verification (e.g., "Sutton Group", "COPA")</td><td>Yes</td></tr>
+  <tr><td><code>verifier</code></td><td>Entity that performed verification (e.g., "Sutton Group", "Cornerstone Network")</td><td>Yes</td></tr>
 </table>
 
 ### 5.2 What Goes in Evidence
 
 - Type of authorization performed
-- Method/source used (Network Partner attestation, COPA authorization)
+- Method/source used (Network Partner attestation, Cornerstone Network authorization)
 - Authorization timestamp
 - Fields that were verified (Professional Credential, organization affiliation, approval records)
 - Reference locator for audit trail
-- Verifier entity information (Network Partner or COPA)
+- Verifier entity information (Network Partner or Cornerstone Network)
 - Any metadata required for regulatory auditability
 
 ### 5.3 What Must NOT Go in Evidence
@@ -358,13 +358,13 @@ The credential is bound to:
 
 ### 6.3 Multi-Source Verification
 
-If Portfolio Issuer authorization involves multiple verification sources (e.g., Network Partner attestation AND COPA approval), the evidence array contains multiple objects documenting each verification source. This increases assurance without requiring an explicit assurance level field.
+If Portfolio Issuer authorization involves multiple verification sources (e.g., Network Partner attestation AND Cornerstone Network approval), the evidence array contains multiple objects documenting each verification source. This increases assurance without requiring an explicit assurance level field.
 
 ## 7. Refresh & Expiration
 
 ### 7.1 Expiration Period
 
-Portfolio Issuer credentials expire **1-3 years** after issuance (exact period determined by Network Partner policy or COPA governance).
+Portfolio Issuer credentials expire **1-3 years** after issuance (exact period determined by Network Partner policy or Cornerstone Network governance).
 
 ### 7.2 Refresh Triggers
 
@@ -396,7 +396,7 @@ The Portfolio Issuer Credential will be revoked when:
 3. Organization affiliation ends (employment termination, brokerage change)
 4. Fraud or misuse of Portfolio Issuer authority detected
 5. Regulatory or legal request for revocation
-6. Network Partner membership in COPA ends
+6. Network Partner membership in Cornerstone Network ends
 7. Holder explicitly requests revocation
 
 ### 8.2 Cascade Revocation Rules
@@ -666,11 +666,11 @@ Evidence supporting Portfolio Issuer credentials is retained for **five years** 
 
 - **W3C Verifiable Credentials Data Model**: https://www.w3.org/TR/vc-data-model/
 - **Cornerstone Schema Registry**: https://schema.cornerstoneplatform.ca/
-- **COPA Trust Registry**: https://trust.cornerstoneplatform.ca/
+- **Cornerstone Network Trust Registry**: https://trust.cornerstoneplatform.ca/
 
 ### 14.3 Governance Resources
 
-- **COPA Governance Framework**: Rules and standards for Network Partners and Portfolio Issuers
+- **Cornerstone Network Governance Framework**: Rules and standards for Network Partners and Portfolio Issuers
 - **Network Partner Agreements**: Contractual terms for Portfolio Issuer authorization
 - **Portfolio Issuer Policy Catalogue**: Access control policies based on Portfolio Issuer credentials
 
@@ -678,7 +678,7 @@ Evidence supporting Portfolio Issuer credentials is retained for **five years** 
 
 **Document Control**
 
-- **Owner**: COPA Trust Network
-- **Governance Body**: COPA
+- **Owner**: Cornerstone Network Trust Network
+- **Governance Body**: Cornerstone Network
 - **Review Cycle**: Annual or upon breaking schema changes
 - **Contact**: governance@cornerstoneplatform.ca

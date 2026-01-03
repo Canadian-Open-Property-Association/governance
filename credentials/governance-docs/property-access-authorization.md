@@ -6,7 +6,7 @@ This document describes the **Property Access Authorization Credential (PAAC)** 
 
 The Property Access Authorization Credential is issued by **homeowners** to members of their property-specific trust network—professionals, advisors, service providers, family members, and trusted individuals. It represents **authorization to access specific portfolio data for a specific property** as defined by the issuing homeowner.
 
-**Property Access Authorization Credential is a homeowner-issued credential**. Unlike other credentials in the Cornerstone network that are issued by Cornerstone Platform Inc., COPA, or Network Partners, this credential is issued directly by homeowners to grant selective access to their property portfolio data. The credential defines the scope of data sharing, the purpose of authorization, property-specific access boundaries, and any time-bound limitations.
+**Property Access Authorization Credential is a homeowner-issued credential**. Unlike other credentials in the Cornerstone network that are issued by Cornerstone Platform Inc., Cornerstone Network, or Network Partners, this credential is issued directly by homeowners to grant selective access to their property portfolio data. The credential defines the scope of data sharing, the purpose of authorization, property-specific access boundaries, and any time-bound limitations.
 
 **External terminology note**: This credential is referred to as "Letter of Authorization" in user-facing applications and marketing materials, while "Property Access Authorization Credential (PAAC)" is the internal technical term used in data models, schemas, and policy definitions.
 
@@ -108,7 +108,7 @@ The Property Access Authorization Credential is issued by **homeowners** who hol
 
 ### 3.2 Schema and Credential Definition Governance
 
-The Property Access Authorization Credential schema and definition are managed by **COPA** and registered on the **COPA Trust Registry**. While the schema is governed by COPA, the actual credential issuance is decentralized—each homeowner acts as an issuer for their own property-specific trust networks. Updates to the PAAC schema follow a change-managed governance process to ensure interoperability across all applications accessing the Cornerstone network.
+The Property Access Authorization Credential schema and definition are managed by **Cornerstone Network** and registered on the **Cornerstone Network Trust Registry**. While the schema is governed by Cornerstone Network, the actual credential issuance is decentralized—each homeowner acts as an issuer for their own property-specific trust networks. Updates to the PAAC schema follow a change-managed governance process to ensure interoperability across all applications accessing the Cornerstone network.
 
 ### 3.3 Issuer Data Source
 
@@ -204,7 +204,7 @@ A Property Access Authorization Credential will be revoked in cases such as:
 
 ### 4.1 Credential Schema
 
-The Property Access Authorization Credential conforms to W3C Verifiable Credentials and uses a COPA-managed schema:
+The Property Access Authorization Credential conforms to W3C Verifiable Credentials and uses a Cornerstone Network-managed schema:
 
 - **Schema ID (URI):** `https://schema.cornerstoneplatform.ca/v1/property-access-authorization.json`
 - **Schema Versioning:** Breaking changes produce a new schema version.
@@ -830,11 +830,11 @@ High-level structure:
 
 - **W3C Verifiable Credentials Data Model**: https://www.w3.org/TR/vc-data-model/
 - **Cornerstone Schema Registry**: https://schema.cornerstoneplatform.ca/
-- **COPA Trust Registry**: https://trust.cornerstoneplatform.ca/
+- **Cornerstone Network Trust Registry**: https://trust.cornerstoneplatform.ca/
 
 ### 13.3 Governance Resources
 
-- **COPA Governance Framework**: Rules and standards for homeowner-issued credentials and trust networks
+- **Cornerstone Network Governance Framework**: Rules and standards for homeowner-issued credentials and trust networks
 - **Property Access Authorization Policy Catalogue**: Access control policies based on PAAC credentials
 - **Trust Network Best Practices**: Guidance for homeowners on authorization scope and access level selection
 
@@ -842,7 +842,7 @@ High-level structure:
 
 **Document Control**
 
-- **Owner**: COPA Trust Network
-- **Governance Body**: COPA
+- **Owner**: Cornerstone Network Trust Network
+- **Governance Body**: Cornerstone Network
 - **Review Cycle**: Annual or upon breaking schema changes
 - **Contact**: governance@cornerstoneplatform.ca

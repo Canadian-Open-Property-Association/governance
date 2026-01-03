@@ -6,7 +6,6 @@ theme:
   name: material
   favicon: cornerstone-logo.png
   logo: cornerstone-logo-white.png
-  custom_dir: overrides
   palette:
     - scheme: default
       primary: custom

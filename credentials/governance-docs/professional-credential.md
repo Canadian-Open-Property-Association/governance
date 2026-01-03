@@ -59,7 +59,7 @@ Example issuers:
 
 ### 3.2 Schema and Credential Definition Governance
 
-The Professional Credential schema is managed by COPA and registered on the Cornerstone Trust Registry. While the schema is standardized, each employer organization issues credentials using their own DID.
+The Professional Credential schema is managed by Cornerstone Network and registered on the Cornerstone Trust Registry. While the schema is standardized, each employer organization issues credentials using their own DID.
 
 ### 3.3 Issuer Data Source
 
@@ -99,7 +99,7 @@ Re-issuance involves the employer issuing a new credential reflecting current st
 
 ### 4.1 Credential Schema
 
-The Professional Credential conforms to W3C Verifiable Credentials and uses a COPA-managed schema:
+The Professional Credential conforms to W3C Verifiable Credentials and uses a Cornerstone Network-managed schema:
 
 - **Schema ID (URI):** `https://openpropertyassociation.ca/credentials/schemas/professional-credential.json`
 - **Schema Versioning:** Breaking changes produce a new schema version.
@@ -246,4 +246,4 @@ These credentials serve different purposes and have different issuers:
 
 ### 6.3 Portfolio Issuer Credential
 
-Organizations that issue Professional Credentials may also hold a **Portfolio Issuer Credential** from COPA, which authorizes them to create homeowner portfolios and issue credentials within the Cornerstone ecosystem.
+Organizations that issue Professional Credentials may also hold a **Portfolio Issuer Credential** from Cornerstone Network, which authorizes them to create homeowner portfolios and issue credentials within the Cornerstone ecosystem.

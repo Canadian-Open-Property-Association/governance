@@ -65,7 +65,7 @@ The Cornerstone ID Credential is issued by **Cornerstone Platform Inc.**, acting
 
 ### 3.2 Schema and Credential Definition Governance
 
-The Cornerstone ID Credential schema and definition are managed by Cornerstone and registered on the **COPA Trust Registry**. COPA governs badge schemas, trust lists, data catalogues, and network policies across the ecosystem. Updates to the Cornerstone ID schema follow a change-managed governance process to ensure interoperability across all applications accessing the Cornerstone network.
+The Cornerstone ID Credential schema and definition are managed by Cornerstone and registered on the **Cornerstone Network Trust Registry**. Cornerstone Network governs badge schemas, trust lists, data catalogues, and network policies across the ecosystem. Updates to the Cornerstone ID schema follow a change-managed governance process to ensure interoperability across all applications accessing the Cornerstone network.
 
 ### 3.3 Issuer Data Source
 
@@ -587,7 +587,7 @@ High-level structure:
 
 ### 12.1 Related Documents
 
-- **Building Canada's Homeownership Trust Network** - Platform vision and architecture describing the three-layer architecture, COPA governance model, and credential-based access control
+- **Building Canada's Homeownership Trust Network** - Platform vision and architecture describing the three-layer architecture, Cornerstone Network governance model, and credential-based access control
 
 - **Verified Homeowner Credential Governance** - Example of role-specific credential built on Cornerstone ID foundation
 
@@ -599,7 +599,7 @@ High-level structure:
 
 - **W3C Verifiable Credentials Data Model**: https://www.w3.org/TR/vc-data-model/
 - **Cornerstone Schema Registry**: https://schema.cornerstoneplatform.ca/
-- **COPA Trust Registry**: https://trust.cornerstoneplatform.ca/
+- **Cornerstone Network Trust Registry**: https://trust.cornerstoneplatform.ca/
 
 ### 12.3 Identity Verification Sources
 
@@ -612,6 +612,6 @@ High-level structure:
 **Document Control**
 
 - **Owner**: Cornerstone Platform Inc.
-- **Governance Body**: COPA Trust Network
+- **Governance Body**: Cornerstone Network Trust Network
 - **Review Cycle**: Annual or upon breaking schema changes
 - **Contact**: governance@cornerstoneplatform.ca
