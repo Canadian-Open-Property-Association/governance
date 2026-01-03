@@ -40,3 +40,76 @@
 .md-tabs__link--active {
   border-bottom: 2px solid #ffffff;
 }
+
+/* ===== DARK MODE (slate scheme) FIXES ===== */
+
+/* Links in dark mode - make them lighter and more visible */
+[data-md-color-scheme="slate"] a {
+  color: #8ab4f8 !important;
+}
+
+[data-md-color-scheme="slate"] a:hover {
+  color: #aecbfa !important;
+}
+
+/* Table links in dark mode */
+[data-md-color-scheme="slate"] .md-typeset table a {
+  color: #8ab4f8 !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table a:hover {
+  color: #aecbfa !important;
+}
+
+/* Navigation sidebar links in dark mode */
+[data-md-color-scheme="slate"] .md-nav__link {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover,
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  color: #ffffff !important;
+}
+
+/* Table of contents links in dark mode */
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link:hover,
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link--active {
+  color: #ffffff !important;
+}
+
+/* Content text in dark mode */
+[data-md-color-scheme="slate"] .md-typeset {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Table text in dark mode */
+[data-md-color-scheme="slate"] .md-typeset table td,
+[data-md-color-scheme="slate"] .md-typeset table th {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Code blocks in dark mode */
+[data-md-color-scheme="slate"] .md-typeset code {
+  color: #e8eaed;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Buttons in dark mode */
+[data-md-color-scheme="slate"] .md-typeset .md-button {
+  color: #ffffff !important;
+  border-color: #8ab4f8;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary {
+  background-color: #505964;
+  border-color: #505964;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary:hover {
+  background-color: #6b7680;
+  border-color: #6b7680;
+}
